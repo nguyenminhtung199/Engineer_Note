@@ -1,0 +1,12 @@
+names:
+  0: face
+  1: mask
+  2: glasses
+  3: cap
+
+path:
+train:
+- /home1/data/tungcao/yolov8_segmentation/data_face_attribute
+
+val:
+- /home1/data/tungcao/yolov8_segmentation/data_face_attribute

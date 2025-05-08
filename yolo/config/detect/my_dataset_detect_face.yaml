@@ -1,0 +1,12 @@
+names:
+  0: face
+  1: mask
+  2: glasses
+  3: cap
+
+path:
+train:
+- /home/data3/tungcao/face_attribute_yolo/data
+
+val:
+- /home/data3/tungcao/face_attribute_yolo/data

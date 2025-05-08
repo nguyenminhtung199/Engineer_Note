@@ -1,0 +1,29 @@
+name: "car_brands_accuracy"
+platform: "tensorrt_plan"
+max_batch_size: 8
+default_model_filename: "convnext_base_w_checkpoint_448001.onnx_b8_gpu0_fp16.engine"
+
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP32
+    format: FORMAT_NCHW
+    dims: [3, 256, 256]
+  }
+]
+
+output [
+  {
+    name: "output"
+    data_type: TYPE_FP32
+    dims: [261]
+  }
+]
+
+instance_group [
+  {
+    kind: KIND_GPU
+    count: 1
+    gpus: [0]
+  }
+]
