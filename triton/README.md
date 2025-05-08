@@ -1,9 +1,27 @@
-CUDA_VISIBLE_DEVICES=5 tritonserver --model-repository=/workspace/models/ --model-control-mode=explicit --load-model=car_brands_accuracy
+## 1. Start Triton with Custom CUDA Device and Selection model
 
-Cách đổi tên tritonserver để hiển thị người dùng khi dùng nvidia-smi2 
-Sau khi khởi chạy docker triton, chạy dòng lệnh
+```bash
+CUDA_VISIBLE_DEVICES=5 tritonserver --model-repository=/workspace/models/ --model-control-mode=explicit --load-model=car_brands_accuracy
+````
+
+## 2. Create a Symbolic Link to Rename the Triton Process
+
+After launching the Triton Docker container, run the following command inside the container:
+
+```bash
 ln -s /opt/tritonserver/bin/tritonserver /opt/tritonserver/bin/tritonserver_new
-Sau đó thay vì dùng
-tritonserver --models ...
-Thì có thể dùng
-tritonserver_new --models ...
+```
+
+Instead of using:
+
+```bash
+tritonserver --model-repository=...
+```
+
+You can now use:
+
+```bash
+tritonserver_new --model-repository=...
+```
+
+The process will now appear as `tritonserver_new` in `nvidia-smi`, making it easier to identify when running multiple instances.
