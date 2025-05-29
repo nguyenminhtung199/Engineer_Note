@@ -10,6 +10,9 @@ docker run -d -p 3000:3000 --name your-container-name your-image-name
 
 # Build and run using docker-compose
 docker-compose up --build
+
+#Down and remove all docker compose
+docker-compose down --remove-orphans
 ````
 
 ### Container Management
