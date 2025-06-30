@@ -1,0 +1,21 @@
+services:
+  s2t-wav2vec-vi:
+    image: registry.icomm.vn/rnd-core/s2t-wav2vec-vi:20250628-01
+    restart: always
+    ports:
+      - 11127:11127
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
+    environment:
+      - TRITON_HOST=localhost:8141
+      - TRITON_MODEL_NAME=infer_asr_wav2vec_general_v2
+      - CUDA_VISIBLE_DEVICES=0
+    entrypoint:
+      - bash
+      - -c
+      - uvicorn app_trt:app --host 0.0.0.0 --port 11127
