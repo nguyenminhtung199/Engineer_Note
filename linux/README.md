@@ -1,5 +1,3 @@
----
-
 ## 🛠️ `systemctl` Commands Cheat Sheet
 
 ### 🔄 Service Management
@@ -117,5 +115,3 @@ systemctl --failed
 ```bash
 sudo systemctl daemon-reload
 ```
-
----
